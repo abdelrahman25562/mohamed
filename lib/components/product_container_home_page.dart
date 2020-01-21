@@ -138,13 +138,15 @@ class _SubCategoryState extends State<SubCategory> {
                               child: FlatButton(
                                 onPressed: () {
                                   iFoundIt = false;
+
                                   List<String> cartItems =
                                       logic.pref.getStringList('cartItems');
+
                                   for (int i = 0; i < cartItems.length; i++) {
                                     if (jsonDecode(cartItems[i])['id'] ==
                                         widget.models[index].id) {
                                       iFoundIt = true;
-                                      cartItems[index] = jsonEncode({
+                                      cartItems[i] = jsonEncode({
                                         'name':
                                             '${widget.models[index].modelName}',
                                         'image':
@@ -170,7 +172,7 @@ class _SubCategoryState extends State<SubCategory> {
 
                                   logic.pref
                                       .setStringList('cartItems', cartItems);
-                                  logic.notifyListeners();
+
                                 },
                                 child: Row(
                                   children: <Widget>[
