@@ -8,7 +8,8 @@
     "search": "search",
     "printers": "printers",
     "more": "more",
-    "cart": "add to cart"
+    "cart": "add to cart",
+    "rmcart": "remove from cart"
   },
   "desc_page": {
     "desc": "description",

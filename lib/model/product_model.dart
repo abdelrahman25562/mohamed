@@ -1,13 +1,13 @@
-class Products {
-  List<Data> data;
+class ProductModel {
+  List<MyData> data;
 
-  Products({this.data});
+  ProductModel({this.data});
 
-  Products.fromJson(Map<String, dynamic> json) {
+  ProductModel.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
-      data = new List<Data>();
+      data = new List<MyData>();
       json['data'].forEach((v) {
-        data.add(new Data.fromJson(v));
+        data.add(new MyData.fromJson(v));
       });
     }
   }
@@ -21,39 +21,7 @@ class Products {
   }
 }
 
-class Data {
-  int id;
-  String name;
-  String images;
-  List<Models> models;
-
-  Data({this.id, this.name, this.images, this.models});
-
-  Data.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    images = json['images'];
-    if (json['models'] != null) {
-      models = new List<Models>();
-      json['models'].forEach((v) {
-        models.add(new Models.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['images'] = this.images;
-    if (this.models != null) {
-      data['models'] = this.models.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class Models {
+class MyData {
   int id;
   String modelName;
   String description;
@@ -65,7 +33,7 @@ class Models {
   List<Images> images;
   List<Features> features;
 
-  Models(
+  MyData(
       {this.id,
         this.modelName,
         this.description,
@@ -77,7 +45,7 @@ class Models {
         this.images,
         this.features});
 
-  Models.fromJson(Map<String, dynamic> json) {
+  MyData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     modelName = json['model_name'];
     description = json['description'];
