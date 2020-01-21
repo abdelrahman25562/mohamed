@@ -144,7 +144,7 @@ class _SubCategoryState extends State<SubCategory> {
                                     if (jsonDecode(cartItems[i])['id'] ==
                                         widget.models[index].id) {
                                       iFoundIt = true;
-                                      cartItems[index] = jsonDecode(jsonEncode({
+                                      cartItems[index] = jsonEncode({
                                         'name':
                                             '${widget.models[index].modelName}',
                                         'image':
@@ -152,7 +152,7 @@ class _SubCategoryState extends State<SubCategory> {
                                         'amount': jsonDecode(
                                             cartItems[i])['amount'] += 1,
                                         'id': widget.models[index].id
-                                      }));
+                                      });
 
                                       break;
                                     }
